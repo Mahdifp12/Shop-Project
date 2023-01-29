@@ -1,0 +1,81 @@
+{% extends 'shared/layout.html' %}
+
+{% block title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+<div id="contact-page" class="container">
+    	<div class="bg">
+    		<div class="row">  	
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">با ما در ارتباط باشیـد</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+				    	<form id="main-contact-form" class="contact-form row" action="{% url 'contact-us-page' %}"
+                              method="post">
+                            {% csrf_token %}
+
+                            <div class="col-md-6 form-group {% if form.email.errors %} text-danger {% endif %}">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                                {{ form.email.errors }}
+
+                            </div>
+
+                            <div class="col-md-6 form-group {% if form.full_name.errors %} text-danger {% endif %}">
+                                {{ form.full_name.label_tag }}
+                                {{ form.full_name }}
+                                {{ form.full_name.errors }}
+                            </div>
+
+                            <div class="col-md-12 form-group {% if form.title.errors %} text-danger {% endif %}">
+                                {{ form.title.label_tag }}
+                                {{ form.title }}
+                                {{ form.title.errors }}
+                            </div>
+
+                            <div class="form-group col-md-12 {% if form.message.errors %} text-danger {% endif %}">
+                                {{ form.message.label_tag }}
+                                {{ form.message }}
+                                {{ form.message.errors }}
+                            </div>
+
+{#                            {{ form }}#}
+{#				            <div class="form-group col-md-6">#}
+{#				                <input type="text" name="fullname" class="form-control"   placeholder="نام">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-6">#}
+{#				                <input type="email" name="email" class="form-control"   placeholder="ایمیـل">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-12">#}
+{#				                <input type="text" name="subject" class="form-control"   placeholder="موضـوع">#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-12">#}
+{#				                <textarea name="message" id="message" class="form-control" rows="8" placeholder="پیغـام شمـا"></textarea>#}
+{#				            </div>#}
+{#				            <div class="form-group col-md-12">#}
+{#				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">#}
+                                <button type="submit" class="btn btn-primary pull-right">ارسال</button>
+{#				            </div>#}
+				        </form>
+	    			</div>
+	    		</div>
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">اطلاعات تماس</h2>
+	    				<address>
+	    					<p>گـروه تکنوگـرافی 1614</p>
+							<p>ایـران - آذربایجـان غربـی - خـوی</p>
+							<p>مجتـمع تجـاری تفریحـی شمس - طبـقه 2 - پلاک 54</p>
+							<p>تلفن تماس : 80 21 24 36 044</p>
+							<p>فکس : 80 21 24 36 044</p>
+							<p style="font-family: tahoma;">ایمیـل : info@1614GP.ir</p>
+	    				</address>
+	    			</div>
+    			</div>    			
+	    	</div>  
+    	</div>	
+    </div>
+
+{% endblock %}
