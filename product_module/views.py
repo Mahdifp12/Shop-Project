@@ -1,5 +1,4 @@
-from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, DetailView
 
 from .models import Product
 
@@ -15,12 +14,6 @@ class ProductListView(ListView):
     #     return active_products
 
 
-class ProductDetailView(TemplateView):
+class ProductDetailView(DetailView):
     template_name = "product_module/product_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        slug = kwargs['slug']
-        product = get_object_or_404(Product, slug=slug)
-        context['product'] = product
-        return context
+    model = Product
