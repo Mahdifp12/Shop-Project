@@ -4,8 +4,6 @@ from django.views.generic import ListView, TemplateView
 from .models import Product
 
 
-# Create your views here.
-
 class ProductListView(ListView):
     template_name = "product_module/product_list.html"
     model = Product
