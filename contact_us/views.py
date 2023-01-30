@@ -6,8 +6,6 @@ from django.views import View
 from .forms import ContactUsModelForm
 
 
-# Create your views here.
-
 class ContactUsView(View):
     def get(self, request):
         form = ContactUsModelForm()
@@ -27,20 +25,3 @@ class ContactUsView(View):
         return render(request, "contact_us/contact_us_page.html", context={
             'form': form
         })
-
-#
-# def contact_us_page(request):
-#     if request.method == "POST":
-#         data = request.POST
-#         form = ContactUsModelForm(data=data)
-#
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect(reverse('home_page'))
-#
-#     else:
-#         form = ContactUsModelForm()
-#
-#     return render(request, "contact_us/contact_us_page.html", context={
-#         'form': form
-#     })
