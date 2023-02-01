@@ -8,7 +8,8 @@ class ContactUsAdmin(admin.ModelAdmin):
     list_display = [
         'full_name',
         'title',
-        'created_date'
+        'created_date',
+        'response'
     ]
 
     list_editable = [
