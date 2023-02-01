@@ -15,5 +15,10 @@ class ContactUsAdmin(admin.ModelAdmin):
         'response'
     ]
 
+    list_filter = [
+        'created_date',
+        'is_read_by_admin'
+    ]
+
 
 admin.site.register(models.ContactUs, ContactUsAdmin)
