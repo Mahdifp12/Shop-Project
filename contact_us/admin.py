@@ -11,5 +11,9 @@ class ContactUsAdmin(admin.ModelAdmin):
         'created_date'
     ]
 
+    list_editable = [
+        'response'
+    ]
+
 
 admin.site.register(models.ContactUs, ContactUsAdmin)
