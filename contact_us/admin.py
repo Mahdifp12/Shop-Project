@@ -4,4 +4,12 @@ from . import models
 
 # Register your models here.
 
-admin.site.register(models.ContactUs)
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = [
+        'full_name',
+        'title',
+        'created_date'
+    ]
+
+
+admin.site.register(models.ContactUs, ContactUsAdmin)
