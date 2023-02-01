@@ -1,13 +1,10 @@
-from django.views.generic.edit import FormView
-
+from django.views.generic.edit import CreateView
 from .forms import ContactUsModelForm
+from .models import ContactUs
 
 
-class ContactUsView(FormView):
-    template_name = "contact_us/contact_us_page.html"
+class ContactUsView(CreateView):
+    model = ContactUs
     form_class = ContactUsModelForm
+    template_name = "contact_us/contact_us_page.html"
     success_url = "/"
-
-    def form_valid(self, form):
-        form.save()
-        return super(ContactUsView, self).form_valid(form)
