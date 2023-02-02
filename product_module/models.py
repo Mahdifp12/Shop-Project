@@ -64,7 +64,7 @@ class Product(models.Model):
 
 class ProductTag(models.Model):
     caption = models.CharField(max_length=300, db_index=True, verbose_name='عنوان تگ')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_tags")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_tags", verbose_name="محصول")
 
     class Meta:
         verbose_name = 'تگ محصول'
