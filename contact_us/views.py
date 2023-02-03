@@ -22,7 +22,6 @@ class CreateProfileView(View):
         form_submited = ProfileForm(request.POST, request.FILES)
 
         if form_submited.is_valid():
-            # get_file(request.FILES['profile'])
             profile = UserProfile(image=request.FILES['user_image'])
             profile.save()
             return redirect('/contact-us/profile')
