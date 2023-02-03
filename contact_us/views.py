@@ -11,12 +11,6 @@ class ContactUsView(CreateView):
     success_url = "/"
 
 
-def get_file(file):
-    with open("/home/mahdi/Documents/eshop_project/temp/image.jpg", "wb+") as dest:
-        for ch in file.chunks():
-            dest.write(ch)
-
-
 class CreateProfileView(View):
     def get(self, request):
         form = ProfileForm()
