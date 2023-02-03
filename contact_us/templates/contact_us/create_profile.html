@@ -15,7 +15,8 @@
 				    	<form id="main-contact-form" class="contact-form row" action="{% url 'create-profile-page' %}"
                               method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            <input type="file" name="profile">
+                            {{ form.user_image.label }}
+                            {{ form.user_image }}
                             <button type="submit" class="btn btn-primary pull-right">ارسال</button>
 				        </form>
 	    			</div>
