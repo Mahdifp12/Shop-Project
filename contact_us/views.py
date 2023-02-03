@@ -10,10 +10,16 @@ class ContactUsView(CreateView):
     success_url = "/"
 
 
+def get_file(file):
+    with open("temp/image.jpg", "wb+") as dest:
+        for ch in file.chunks():
+            dest.write(ch)
+
+
 class CreateProfileView(View):
     def get(self, request):
         return render(request, 'contact_us/create_profile.html', context={})
 
     def post(self, request):
-        print(request.FILES)
+        get_file(request.FILES['profile'])
         return redirect('/contact-us/profile')
