@@ -54,7 +54,3 @@ class ContactUsModelForm(forms.ModelForm):
                 'required': 'لطفا پیغام خود را وارد کنید',
             }
         }
-
-
-class ProfileForm(forms.Form):
-    user_image = forms.FileField()
