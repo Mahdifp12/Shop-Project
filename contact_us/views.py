@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
 
-from .forms import ContactUsModelForm, ProfileForm
+from .forms import ContactUsModelForm
 from .models import UserProfile
 
 
