@@ -9,7 +9,6 @@
     <section>
 		<div class="container">
 			<div class="row">
-				
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -60,6 +59,13 @@
 									<span>
 										<span>تومان {{ product.price }}</span>
 									</span>
+                                    <div class="col-md-12">
+                                        {% if is_favorite %}
+                                            <p>
+                                            این محصول مورد علاقه من است
+                                            </p>
+                                        {% endif %}
+                                    </div>
 									<span>
                                         <form method="post" action="{% url 'product-favorite' %}">
                                          {% csrf_token %}
@@ -71,14 +77,7 @@
                                         </form>
 										</button>
 									</span>
-                                    <div class="col-md-12">
-                                        {% if is_favorite %}
-                                            <p>
-                                            این محصول مورد علاقه من است
-                                            </p>
-                                        {% endif %}
 
-                                    </div>
 								</div>
 								<div>
                                     {% if product.is_active %}

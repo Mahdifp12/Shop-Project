@@ -20,7 +20,7 @@ class ProductDetailView(DetailView):
         self_product = self.object
         request = self.request
         product_favorite = request.session["product_favorite"]
-        is_favorite = product_favorite == str(self_product.id)
+        is_favorite = product_favorite == self_product.id
         context["is_favorite"] = is_favorite
         return context
 
