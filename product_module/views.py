@@ -19,7 +19,7 @@ class ProductDetailView(DetailView):
         context = super(ProductDetailView, self).get_context_data(**kwargs)
         self_product = self.object
         request = self.request
-        product_favorite = request.session["product_favorite"]
+        product_favorite = request.session.get("product_favorite")
         is_favorite = product_favorite == self_product.id
         context["is_favorite"] = is_favorite
         return context
