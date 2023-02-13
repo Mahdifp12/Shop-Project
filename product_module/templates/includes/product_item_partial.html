@@ -2,7 +2,11 @@
 <div class="product-image-wrapper">
 <div class="single-products">
 <div class="productinfo text-center">
-    <img src="/static/images/shop/product.jpg" alt="">
+    {% if product.image %}
+        <img src={{ product.image.url }} alt="product-image">
+    {% else %}
+        <img src="/static/images/shop/product.jpg" alt="product-image">
+    {% endif %}
     <h2>تومان{{ product.price }}</h2>
     <p>{{ product.title}}</p>
     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
