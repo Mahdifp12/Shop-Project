@@ -34,6 +34,7 @@ class ProductBrand(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=300, verbose_name="عنوان")
+    image = models.ImageField(verbose_name="عکس", upload_to="images/products", null=True, blank=True)
     category = models.ManyToManyField(ProductCategory,
                                       related_name='product_categories',
                                       verbose_name='دسته بندی ها',
