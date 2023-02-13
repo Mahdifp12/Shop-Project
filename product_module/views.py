@@ -15,6 +15,14 @@ class ProductDetailView(DetailView):
     template_name = "product_module/product_detail.html"
     model = Product
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetailView, self).get_context_data(**kwargs)
+        self_product = self.object
+        request = self.request
+        is_favorite = request.session["product_favorite"] == str(self_product.id)
+        context["is_favorite"] = is_favorite
+        return context
+
 
 class ProductFavorite(View):
     def post(self, request):
