@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "product_module",
     "contact_us",
     "api_app",
+    "account_app",
     "django_render_partial",
     "rest_framework",
 
