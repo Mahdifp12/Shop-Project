@@ -28,4 +28,4 @@ class RegisterForm(forms.Form):
         if password == confirm_password:
             return confirm_password
 
-        raise ValidationError('کلمه عبور و تکرار کلمه عبور مغایرت ندارد')
+        raise ValidationError('رمز عبور و رمز کلمه عبور مغایرت ندارد')
