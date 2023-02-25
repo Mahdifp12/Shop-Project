@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 from .models import User
 from .forms import RegisterForm
@@ -17,7 +18,7 @@ class RegisterView(View):
         return render(request, 'account_app/register.html', context)
 
     def post(self, request):
-        register_form = RegisterForm(request.POST or None)
+        register_form = RegisterForm(request.POST)
 
         if register_form.is_valid():
             user_email = register_form.cleaned_data.get("email")
@@ -27,12 +28,32 @@ class RegisterView(View):
                 register_form.add_error('email', 'ایمیل وارد شده تکراری میباشد')
 
             else:
-                new_user = User(email=user_email, email_active_code=get_random_string(72))
+                new_user = User(
+                    email=user_email,
+                    email_active_code=get_random_string(72),
+                    is_active=False,
+                    username=user_email
+                )
                 new_user.set_password(user_password)
                 new_user.save()
                 # todo: send email active code
+
+                return redirect(reverse('login-page'))
         context = {
             "register_form": register_form
         }
 
         return render(request, 'account_app/register.html', context)
+
+
+class LoginView(View):
+    def get(self, request):
+        login_form = None
+        context = {
+            "login_form": None
+        }
+
+        return render(request, 'account_app/register.html', context)
+
+    def post(self, request):
+        pass
