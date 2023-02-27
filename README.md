@@ -66,7 +66,7 @@ Register User page (User Form):
 
 Home Page in Mobile:
 
-<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="1442" height="3202" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;">
+<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;">
 
 Product Detail Page in Mobile:
 
