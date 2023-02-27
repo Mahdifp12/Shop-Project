@@ -5,6 +5,15 @@
 #### By guiding the Django render partial library and module, I reduced the size of Template base and it became more optimal
 #### Using the Django rest framework technology, I built an API for products
 
+## requirement file
+```bash
+pip install -r requirements.txt
+```
+
+## License
+
+[Apache license](https://www.apache.org/licenses/)
+
 ## Images :
 
 Home page :
@@ -57,22 +66,13 @@ Register User page (User Form):
 
 Home Page in Mobile:
 
-<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="1442" height="3202">
+<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="1442" height="3202" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;">
 
 Product Detail Page in Mobile:
 
-<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile">
+<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;">
 
 Contact Us in Mobile:
 
-<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile">
+<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 150px;">
 
-
-## requirement file
-```bash
-pip install -r requirements.txt
-```
-
-## License
-
-[Apache license](https://www.apache.org/licenses/)
