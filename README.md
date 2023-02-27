@@ -61,11 +61,11 @@ Home Page in Mobile:
 
 Product Detail Page in Mobile:
 
-<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile" width="1442" height="15411">
+<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile">
 
 Contact Us in Mobile:
 
-<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile" width="1442" height="8971">
+<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile">
 
 
 ## requirement file
