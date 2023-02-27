@@ -7,7 +7,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['text'] = "Hello This is text for TEST"
+        context['text'] = ""
         return context
 
 
