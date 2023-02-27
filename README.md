@@ -57,7 +57,7 @@ Register User page (User Form):
 
 Home Page in Mobile:
 
-<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile">
+<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="500" height="500">
 
 Product Detail Page in Mobile:
 
