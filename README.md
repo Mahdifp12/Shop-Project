@@ -7,7 +7,7 @@
 
 ## Images : 
 
-<img src="/static/images/readme_images/home_page_full.png" alt="Alt text" title="Home Page" width="500" height="500">
+<img src="/static/images/readme_images/home_page_full.png" alt="Alt text" title="Home Page">
 
 ## requirement file
 ```bash
