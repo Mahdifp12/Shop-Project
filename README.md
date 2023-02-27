@@ -57,15 +57,15 @@ Register User page (User Form):
 
 Home Page in Mobile:
 
-<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="500" height="500">
+<img src="/static/images/readme_images/home_page_mobile.png" alt="Alt text" title="Home Page Mobile" width="1442" height="3202">
 
 Product Detail Page in Mobile:
 
-<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile">
+<img src="/static/images/readme_images/product_detail_page_mobile.png" alt="Alt text" title="Product Detail Page Mobile" width="1442" height="15411">
 
 Contact Us in Mobile:
 
-<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile">
+<img src="/static/images/readme_images/contact_us_page_mobile.png" alt="Alt text" title="Contact Us Page Mobile" width="1442" height="8971">
 
 
 ## requirement file
