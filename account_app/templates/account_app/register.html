@@ -10,7 +10,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-offset-3">
 					<div class="signup-form"><!--sign up form-->
-						<h2>ثبت نام کاربـر جدیـد</h2>
+						<h2>ثبت نام حساب کاربری</h2>
 						<form method="post" action={% url 'register-page' %}>
                             {% csrf_token %}
                             {{ register_form.email.label_tag }}
