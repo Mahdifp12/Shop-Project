@@ -77,9 +77,12 @@ class LoginView(View):
                         login_form.add_error(field="email", error= "کاربری با مشخصات شما یافت نشد")
             else:
                 login_form.add_error(field="email", error="کاربری با مشخصات شما یافت نشد")
+
         context = {
             "login_form": login_form
         }
+
+        return render(request, "account_app/login.html", context)
 
 
 class ActivateAccount(View):
