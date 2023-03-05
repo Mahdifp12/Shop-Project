@@ -73,7 +73,10 @@ class LoginView(View):
                     if is_correct_password:
                         login(request, user)
                         return redirect(reverse("home_page"))
-
+                    else:
+                        login_form.add_error(field="password", error="رمز عبور شما درست نمی باشد")
+            else:
+                login_form.add_error(field="email", error="شما ثبت نام نکرده اید")
         context = {
             "login_form": login_form
         }
