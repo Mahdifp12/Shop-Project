@@ -1,4 +1,4 @@
-# Eshop project (Django project)
+# shop project (Django project)
 
 #### I used a free template in this project.
 #### In this project, the topic is a sell any product
