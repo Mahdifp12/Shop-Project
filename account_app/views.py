@@ -74,9 +74,9 @@ class LoginView(View):
                         login(request, user)
                         return redirect(reverse("home_page"))
                     else:
-                        login_form.add_error(field="password", error="رمز عبور شما درست نمی باشد")
+                        login_form.add_error(field="email", error= "کاربری با مشخصات شما یافت نشد")
             else:
-                login_form.add_error(field="email", error="شما ثبت نام نکرده اید")
+                login_form.add_error(field="email", error="کاربری با مشخصات شما یافت نشد")
         context = {
             "login_form": login_form
         }
