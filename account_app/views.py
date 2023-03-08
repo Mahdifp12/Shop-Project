@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from .models import User
-from .forms import RegisterForm, LoginForm, ForgetPasswordForm
+from .forms import RegisterForm, LoginForm, ForgetPasswordForm, ResetPasswordForm
 from django.utils.crypto import get_random_string
 from django.contrib.auth import login, logout
 
@@ -113,3 +113,33 @@ class ForgetPassword(View):
             "form": forget_pass_form
         }
         return render(request, 'account_app/forgot_password.html', context)
+
+    def post(self, request: HttpRequest):
+        forget_pass_form = ForgetPasswordForm(request.POST)
+
+        if forget_pass_form.is_valid():
+            user_email = forget_pass_form.cleaned_data.get("email")
+            user: User = User.objects.filter(email__iexact=user_email).first()
+
+            if user is not None:
+                pass
+
+        context = {
+            "form": forget_pass_form
+        }
+
+        return render(request, 'account_app/forgot_password.html', context)
+
+
+class ResetPassword(View):
+    def get(self, request: HttpRequest, active_code):
+        user: User = User.objects.filter(email_active_code__iexact=active_code).first()
+        if user is None:
+            return redirect(reverse("login-page"))
+
+        reset_password_form = ResetPasswordForm()
+
+        context = {
+            "form": reset_password_form
+        }
+        return render(request, 'account_app/reset_password.html', context)
