@@ -115,17 +115,17 @@ class ForgetPassword(View):
         return render(request, 'account_app/forgot_password.html', context)
 
     def post(self, request: HttpRequest):
-        forget_pass_form = ForgetPasswordForm(request.POST)
+        forget_password_form = ForgetPasswordForm(request.POST)
 
-        if forget_pass_form.is_valid():
-            user_email = forget_pass_form.cleaned_data.get("email")
+        if forget_password_form.is_valid():
+            user_email = forget_password_form.cleaned_data.get("email")
             user: User = User.objects.filter(email__iexact=user_email).first()
 
             if user is not None:
                 pass
 
         context = {
-            "form": forget_pass_form
+            "form": forget_password_form
         }
 
         return render(request, 'account_app/forgot_password.html', context)
