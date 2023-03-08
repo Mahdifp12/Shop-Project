@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
 from .models import User
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, ForgetPasswordForm
 from django.utils.crypto import get_random_string
 from django.contrib.auth import login, logout
 
@@ -104,3 +104,12 @@ class ActivateAccount(View):
 
     def post(self, request):
         pass
+
+
+class ForgetPassword(View):
+    def get(self, request: HttpRequest):
+        forget_pass_form = ForgetPasswordForm()
+        context = {
+            "form": forget_pass_form
+        }
+        return render(request, 'account_app/forgot_password.html', context)
