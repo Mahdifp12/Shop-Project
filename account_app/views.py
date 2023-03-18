@@ -86,7 +86,7 @@ class LoginView(View):
         return render(request, "account_app/login.html", context)
 
 
-class ActivateAccount(View):
+class ActivateAccountView(View):
     def get(self, request, email_active_code):
         user: User = User.objects.filter(email_active_code__iexact=email_active_code).first()
         if user is not None:
@@ -107,7 +107,7 @@ class ActivateAccount(View):
         pass
 
 
-class ForgetPassword(View):
+class ForgetPasswordView(View):
     def get(self, request: HttpRequest):
         forget_pass_form = ForgetPasswordForm()
         context = {
@@ -132,7 +132,7 @@ class ForgetPassword(View):
         return render(request, 'account_app/forgot_password.html', context)
 
 
-class ResetPassword(View):
+class ResetPasswordView(View):
     def get(self, request: HttpRequest, active_code):
         user: User = User.objects.filter(email_active_code__iexact=active_code).first()
         if user is None:
