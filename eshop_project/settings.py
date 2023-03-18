@@ -145,8 +145,9 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST = "smtp.gmail.com"
 
-EMAIL_HOST_USER = ""
+EMAIL_HOST_USER = "Your SMTP email is placed here"  # you should create SMTP Email just this project
+# hint : you can use add passwords system from gmail
 
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_PASSWORD = "Your Password is placed here"
 
 EMAIL_PORT = 587
