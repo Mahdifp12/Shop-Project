@@ -49,6 +49,9 @@
                                     <li><a href=""><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
                                     <li><a href=""><i class="fa fa-user"></i> پنل کاربری</a></li>
                                     <li><a href="{% url 'logout-page' %}"><i class="fa fa-sign-out"></i> خروج</a></li>
+                                    {% if request.user.is_superuser %}
+                                        <li><a href="/admin"><i class="fa fa-user"></i>پنل ادمین</a></li>
+                                    {% endif %}ض
                                     {% else %}
                                        <li><a href="{% url 'register-page' %}"><i class="fa fa-star"></i> ثبت نام</a></li>
                                         <li><a href="{% url 'login-page' %}"><i class="fa fa-sign-in"></i> ورود</a></li>
