@@ -14,6 +14,7 @@ class SiteSettings(models.Model):
     site_logo = models.ImageField(upload_to="images/site_settings/", verbose_name="لوگو سایت")
     site_url = models.CharField(max_length=250, verbose_name="دامنه سایت")
     about_us = models.TextField(verbose_name="درباره ما")
+    git_hub_url = models.URLField(verbose_name="آدرس گیت هاب", max_length=250, null=True)
 
     class Meta:
         verbose_name = "تنظیمات سایت"
