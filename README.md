@@ -19,6 +19,7 @@ pip install -r requirements.txt
 Home page :
 
 <img src="/static/images/readme_images/home_page_full.png" alt="Alt text" title="Home Page">
+<img src="/static/images/readme_images/home_page_full_slide2.png" alt="Alt text" title="Home Page">
 
 
 Home page 2:
