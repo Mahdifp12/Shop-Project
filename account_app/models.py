@@ -13,5 +13,5 @@ class User(AbstractUser):
     def __str__(self):
         if self.first_name is not "" and self.last_name is not "":
             return self.get_full_name()
-        else:
-            return self.email
+
+        return self.email
