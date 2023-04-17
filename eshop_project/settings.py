@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     # external apps
     "django_render_partial",
     "rest_framework",
-    "sorl.thumbnail"
+    "sorl.thumbnail",
+    "jalali_date",
 
 ]
 
@@ -155,3 +156,27 @@ EMAIL_HOST_USER = "Your SMTP email is placed here"  # you should create SMTP Ema
 EMAIL_HOST_PASSWORD = "Your Password is placed here"
 
 EMAIL_PORT = 587
+
+JALALI_DATE_DEFAULTS = {
+    'Strftime': {
+        'date': '%y/%m/%d',
+        'datetime': '%H:%M:%S _ %y/%m/%d',
+    },
+    'Static': {
+        'js': [
+            # loading datepicker
+            'admin/js/django_jalali.min.js',
+            # OR
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
+            # 'admin/js/main.js',
+        ],
+        'css': {
+            'all': [
+                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+            ]
+        }
+    },
+}
