@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "account_app",
     "site_settings_module",
     "articles_module",
+    "polls",
     # external apps
     "django_render_partial",
     "rest_framework",
