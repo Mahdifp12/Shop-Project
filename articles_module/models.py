@@ -1,4 +1,5 @@
 from django.db import models
+from jalali_date import date2jalali, datetime2jalali
 
 from account_app.models import User
 
@@ -33,6 +34,12 @@ class Article(models.Model):
     class Meta:
         verbose_name = "مقاله"
         verbose_name_plural = "مقالات"
+
+    def get_jalali_create_date(self):
+        return date2jalali(self.create_date)
+
+    def get_jalali_create_time(self):
+        return datetime2jalali(self.create_date).strftime("%H:%M")
 
     def __str__(self):
         return self.title
