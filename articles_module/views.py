@@ -5,17 +5,17 @@ from django.views.generic import ListView
 from .models import Article, ArticleCategory
 
 
-class ArticlesView(ListView):
+class ArticleListView(ListView):
     model = Article
     paginate_by = 4
     template_name = "articles_module/articles_page.html"
 
     def get_context_data(self, *args, **kwargs):
-        context = super(ArticlesView, self).get_context_data(*args, **kwargs)
+        context = super(ArticleListView, self).get_context_data(*args, **kwargs)
         return context
 
     def get_queryset(self):
-        query = super(ArticlesView, self).get_queryset()
+        query = super(ArticleListView, self).get_queryset()
         category_name = self.kwargs.get("category")
         if category_name is not None:
             query = query.filter(selected_categories__url_title__iexact=category_name)
