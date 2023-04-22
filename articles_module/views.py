@@ -1,6 +1,6 @@
 from django.http import HttpRequest
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Article, ArticleCategory
 
@@ -16,9 +16,21 @@ class ArticleListView(ListView):
 
     def get_queryset(self):
         query = super(ArticleListView, self).get_queryset()
+        query = query.filter(is_active=True)
         category_name = self.kwargs.get("category")
         if category_name is not None:
             query = query.filter(selected_categories__url_title__iexact=category_name)
+
+        return query
+
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = "articles_module/article_detail_page.html"
+
+    def get_queryset(self):
+        query = super(ArticleDetailView, self).get_queryset()
+        query = query.filter(is_active=True)
 
         return query
 
