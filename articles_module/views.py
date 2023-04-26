@@ -2,7 +2,7 @@ from django.http import HttpRequest
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Article, ArticleCategory
+from .models import Article, ArticleCategory, ArticleComment
 
 
 class ArticleListView(ListView):
@@ -33,6 +33,13 @@ class ArticleDetailView(DetailView):
         query = query.filter(is_active=True)
 
         return query
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data()
+        article: Article = kwargs.get('object')
+        context['comments']: ArticleComment = ArticleComment.objects.filter(article_id=article.id, parent=None)\
+            .prefetch_related("articlecomment_set")
+        return context
 
 
 def article_categories_component(request: HttpRequest):
