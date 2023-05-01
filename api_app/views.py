@@ -10,7 +10,7 @@ from .serializer import ProductSerializer
 
 
 class ProductApiList(APIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAdminUser]
 
     def get(self, request):
         products = Product.objects.all().order_by('-id')
@@ -41,7 +41,7 @@ class ProductApiList(APIView):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
+@permission_classes([permissions.IsAdminUser])
 def product_api_view_detail(request, pk):
     try:
         product = Product.objects.get(pk=pk)
