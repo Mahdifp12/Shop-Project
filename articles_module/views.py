@@ -1,4 +1,4 @@
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -37,7 +37,7 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data()
         article: Article = kwargs.get('object')
-        context['comments']: ArticleComment = ArticleComment.objects.filter(article_id=article.id, parent=None)\
+        context['comments']: ArticleComment = ArticleComment.objects.filter(article_id=article.id, parent=None) \
             .prefetch_related("articlecomment_set")
         return context
 
@@ -50,3 +50,8 @@ def article_categories_component(request: HttpRequest):
     }
 
     return render(request, "articles_module/components/article_categories_component.html", context)
+
+
+def add_article_comment(request: HttpRequest):
+    print(request.GET)
+    return HttpResponse('response')
