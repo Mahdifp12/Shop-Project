@@ -37,7 +37,8 @@ class ArticleDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data()
         article: Article = kwargs.get('object')
-        context['comments']: ArticleComment = ArticleComment.objects.filter(article_id=article.id, parent=None) \
+        context['comments']: ArticleComment = ArticleComment.objects.filter(article_id=article.id, parent=None)\
+            .order_by('-create_date') \
             .prefetch_related("articlecomment_set")
         return context
 
