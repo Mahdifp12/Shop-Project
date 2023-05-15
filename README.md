@@ -64,6 +64,11 @@ Register User page (User Form):
 
 <img src="/static/images/readme_images/register_user_page.png" alt="Alt text" title="Register User Page">
 
+Articles page :
+
+<img src="/static/images/readme_images/articles.png" alt="Alt text" title="Articles Page">
+
+
 <hr><hr>
 
 Home Page in Mobile:
