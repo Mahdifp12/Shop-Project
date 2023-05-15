@@ -60,7 +60,12 @@ Contact Us page :
 
 <img src="/static/images/readme_images/contact_us_page.png" alt="Alt text" title="Contact Us Page">
 
-Register User page (User Form):
+About Us page :
+
+<img src="/static/images/readme_images/about-us.png" alt="Alt text" title="About Us Page">
+
+
+Register User page (User Form) :
 
 <img src="/static/images/readme_images/register_user_page.png" alt="Alt text" title="Register User Page">
 
