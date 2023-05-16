@@ -23,21 +23,6 @@ Home page :
 <img src="/static/images/readme_images/home_page_slider2.png" alt="Alt text" title="Home Page">
 
 
-Home page 2:
-
-<img src="/static/images/readme_images/home_page_full2.png" alt="Alt text" title="Home Page2">
-
-
-Home page 3:
-
-<img src="/static/images/readme_images/home_page_full3.png" alt="Alt text" title="Home Page3">
-
-
-Home page footer:
-
-<img src="/static/images/readme_images/home_page_full4.png" alt="Alt text" title="Home Page FOOTER">
-
-
 Product page :
 
 <img src="/static/images/readme_images/product_page.png" alt="Alt text" title="Product Page">
