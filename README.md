@@ -53,7 +53,7 @@ Contact Us page :
 
 About Us page :
 
-<img src="/static/images/readme_images/about-us.png" alt="Alt text" title="About Us Page">
+<img src="/static/images/readme_images/about-us.png" alt="Alt text" title="About Us Page" id="about-us-page">
 
 
 Register User page (User Form) :
