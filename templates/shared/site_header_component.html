@@ -51,7 +51,7 @@
                                         <li><a href="/admin"><i class="fa fa-user"></i>پنل ادمین</a></li>
                                     {% endif %}
                                     <li><a href=""><i class="fa fa-shopping-cart"></i> سبد خرید</a></li>
-                                    <li><a href=""><i class="fa fa-user"></i> پنل کاربری</a></li>
+                                    <li><a href="{% url 'user_panel_dashboard' %}"><i class="fa fa-user"></i> پنل کاربری</a></li>
                                     <li><a href="{% url 'logout-page' %}"><i class="fa fa-sign-out"></i> خروج</a></li>
                                     {% else %}
                                        <li><a href="{% url 'register-page' %}"><i class="fa fa-star"></i> ثبت نام</a></li>
