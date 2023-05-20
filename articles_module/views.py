@@ -68,7 +68,7 @@ def add_article_comment(request: HttpRequest):
         new_comment.save()
 
         context = {
-            'comments': ArticleComment.objects.filter(article_id=article_id, parent=None).order_by('-create_date')\
+            'comments': ArticleComment.objects.filter(article_id=article_id, parent=None).order_by('-create_date') \
                 .prefetch_related("articlecomment_set"),
 
             'comments_count': ArticleComment.objects.filter(article_id=article_id).count()
