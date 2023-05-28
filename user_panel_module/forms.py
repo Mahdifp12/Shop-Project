@@ -10,7 +10,8 @@ class EditProfileModelForm(forms.ModelForm):
             'first_name',
             'last_name',
             'avatar',
-            'address'
+            'address',
+            'about_user',
         ]
         widgets = {
             'first_name': forms.TextInput(attrs={
@@ -21,14 +22,20 @@ class EditProfileModelForm(forms.ModelForm):
                 "placeholder": "ایمیل شما"}),
             'avatar': forms.FileInput(attrs={
                 "class": "form-control",
-                "placeholder": "عنوان پیفام شما",
+                "placeholder": "تصویر پروفایل",
             }),
             'address': forms.Textarea(attrs={
                 "class": "form-control",
                 "placeholder": "پیغام شما",
                 "rows": "3",
                 "cols": "20",
-                "id": "message"})
+                "id": "message"}),
+
+            'about_user': forms.Textarea(attrs={
+                "class": "form-control",
+                "placeholder": "درباره شما",
+                "rows": "6",
+                "cols": "20", })
         }
 
         labels = {
@@ -36,6 +43,7 @@ class EditProfileModelForm(forms.ModelForm):
             'last_name': "نام خانوادگی",
             'avatar': "تصویر پروفایل",
             'address': "آدرس",
+            'about_user': "درباره شما",
 
         }
         error_messages = {
