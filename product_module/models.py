@@ -11,6 +11,8 @@ class ProductCategory(models.Model):
     url_title = models.CharField(max_length=300, db_index=True, verbose_name='عنوان در url')
     is_active = models.BooleanField(default=False, verbose_name="فعال / غیر فعال")
     is_delete = models.BooleanField(default=False, verbose_name="حذف شده / حذف نشده")
+    parent = models.ForeignKey('ProductCategory', null=True, blank=True, on_delete=models.CASCADE,
+                               verbose_name='دسته بندی والد')
 
     def __str__(self):
         return f'({self.title}) - ({self.url_title})'
