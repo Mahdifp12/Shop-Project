@@ -1,6 +1,6 @@
 # shop project (Django project)
 
-#### I used a free template in this project.
+#### I used a free template in this project. (This template has no business aspect and is only for one project)
 #### In this project, the topic is a sell any product
 #### By guiding the Django render partial library and module, I reduced the size of Template base and it became more optimal
 #### Using the Django REST framework technology, I built an API for products (REST API)
