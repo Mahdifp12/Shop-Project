@@ -24,6 +24,7 @@ class ProductCategory(models.Model):
 
 class ProductBrand(models.Model):
     title = models.CharField(max_length=300, db_index=True, verbose_name="عنوان برند")
+    url_title = models.CharField(max_length=300, db_index=True, null=True, verbose_name='عنوان در url')
     is_active = models.BooleanField(default=False, verbose_name="فعال / غیر فعال")
 
     class Meta:
