@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import ListView, DetailView
 
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, ProductBrand
 
 
 class ProductListView(ListView):
@@ -15,10 +15,16 @@ class ProductListView(ListView):
 
     def get_queryset(self):
         query = super(ProductListView, self).get_queryset()
+        query2 = super(ProductListView, self).get_queryset()
         query = query.filter(is_active=True)
+        query2 = query.filter(is_active=True)
         category_name = self.kwargs.get("category")
+        brand_name = self.kwargs.get("brand")
         if category_name is not None:
             query = query.filter(category__url_title__iexact=category_name)
+        if brand_name is not None:
+            query2 = query2.filter(brand__url_title__iexact=brand_name)
+            return query2
 
         return query
 
@@ -54,3 +60,13 @@ def product_categories_components(request: HttpRequest):
     }
 
     return render(request, template_name="product_module/components/product_categories_component.html", context=context)
+
+
+def product_brands_components(request: HttpRequest):
+    product_brands = ProductBrand.objects.filter(is_active=True)
+
+    context = {
+        "product_brands": product_brands
+    }
+
+    return render(request, "product_module/components/product_brands_component.html", context)
