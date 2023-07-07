@@ -46,11 +46,11 @@ class ProductFavorite(View):
 
 
 def product_categories_components(request: HttpRequest):
-    product_categories_component = ProductCategory.objects.prefetch_related("productcategory_set") \
+    product_categories = ProductCategory.objects.prefetch_related("productcategory_set") \
         .filter(is_active=True, is_delete=False, parent_id=None)
 
     context = {
-        "product_categories_component": product_categories_component
+        "product_categories": product_categories
     }
 
     return render(request, template_name="product_module/components/product_categories_component.html", context=context)
