@@ -8,6 +8,7 @@
                 <a data-toggle="collapse" data-parent="#accordian" href="#{{ product_main_category.url_title }}">
                     <span class="badge pull-right"><i class="fa fa-plus"></i></span>
                     {{ product_main_category.title }}
+                    <span class="badge pull-left">{{ product_main_category.productcategory_set.count }}</span>
                 </a>
             {% else %}
                 <a href="{% url 'products-by-category-list' category=product_main_category.url_title %}">
