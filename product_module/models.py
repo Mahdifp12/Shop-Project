@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-
+from account_app.models import User
 
 # Create your models here.
 
@@ -76,3 +76,17 @@ class ProductTag(models.Model):
 
     def __str__(self):
         return self.caption
+
+
+class ShoppingCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="کاربر")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="محصول")
+    quantity = models.PositiveIntegerField(default=1, verbose_name="تعداد")
+    
+    
+    class Meta:
+        verbose_name = 'سبد خرید'
+        verbose_name_plural = 'سبد های خرید'
+
+    def __str__(self):
+        return f"{self.user} - {self.product} ({self.quantity})"
