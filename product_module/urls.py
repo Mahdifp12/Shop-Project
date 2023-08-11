@@ -7,4 +7,5 @@ urlpatterns = [
     path('bra/<str:brand>', views.ProductListView.as_view(), name='product-by-brand-list'),
     path('product-favorite', views.ProductFavorite.as_view(), name='product-favorite'),
     path('<slug:slug>', views.ProductDetailView.as_view(), name='product-detail'),
+    path('cart/', views.ShoppingCartView.as_view(), name="shopping-cart-view"),
 ]
