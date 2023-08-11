@@ -78,12 +78,21 @@
                                          {% csrf_token %}
 										<input type="hidden" name="product_id" value="{{ product.id }}" class="search_box">
 										<button type="submit" class="btn btn-fefault cart">
-											<i class="fa fa-shopping-cart"></i>
+											<i class="fa fa-star"></i>
 											افزودن به علاقمندی ها
                                         </form>
 										</button>
 									</span>
-
+									<span>
+                                        <form method="post" action="{% url 'product-favorite' %}">
+                                         {% csrf_token %}
+										<input type="hidden" class="search_box">
+										<button type="submit" class="btn btn-fefault cart">
+											<i class="fa fa-shopping-cart"></i>
+											افزودن به سبد خرید
+                                        </form>
+										</button>
+									</span>
 								</div>
 								<div>
                                     {% if product.is_active %}
