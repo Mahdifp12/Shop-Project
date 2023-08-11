@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import ListView, DetailView
 
-from .models import Product, ProductCategory, ProductBrand
+from .models import Product, ProductCategory, ProductBrand, ShoppingCart
 
 
 class ProductListView(ListView):
@@ -50,6 +50,20 @@ class ProductFavorite(View):
         request.session["product_favorite"] = product.id
         return redirect(product.get_absolute_url())
 
+class ShoppingCartView(View):
+    template_name = "product_module/shopping_cart_page.html"
+    
+    def get(self, request: HttpRequest, *args, **kwargs):
+        user = request.user
+        cart_items = ShoppingCart.objects.filter(user=user)
+        total_price = sum(item.product.price * item.quantity for item in cart_items)
+        
+        context = {
+            'cart_items': cart_items,
+            'total_price': total_price,
+        }
+        
+        return render(request, self.template_name, context)
 
 def product_categories_components(request: HttpRequest):
     product_categories = ProductCategory.objects.prefetch_related("productcategory_set") \
