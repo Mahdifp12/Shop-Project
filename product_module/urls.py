@@ -8,4 +8,5 @@ urlpatterns = [
     path('product-favorite', views.ProductFavorite.as_view(), name='product-favorite'),
     path('<slug:slug>', views.ProductDetailView.as_view(), name='product-detail'),
     path('cart/', views.ShoppingCartView.as_view(), name="shopping-cart-view"),
+    path('add-to-cart/', views.AddShoppingCart.as_view(), name="add-shopping-cart"),
 ]
