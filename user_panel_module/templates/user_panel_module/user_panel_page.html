@@ -13,7 +13,11 @@
             {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
         </div>
         <div class="col-md-8">
-            <p>This is user DASHBOARD</p>
+            {% if request.user.username %}
+                <p>سلام {{ request.user.username }} خوش آمدی به پنل کاربری خودت</p>
+            {% else %}
+                <p>سلام {{ requesr.user.email }} خوش آمدی به پنل کاربری خودت</p>
+            {% endif %}
         </div>
     </div>
     </div>
