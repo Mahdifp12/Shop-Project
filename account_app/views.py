@@ -40,7 +40,7 @@ class RegisterView(View):
                 new_user.set_password(user_password)
                 new_user.save()
                 # todo: send email active code
-                send_email('فعالسازی حساب کاربری', new_user.email, {"user": new_user}, "emails/acitve_account.html")
+                send_email('فعالسازی حساب کاربری', new_user.email, {"user": new_user}, "emails/activate_account.html")
                 return redirect(reverse('login-page'))
         context = {
             "register_form": register_form
@@ -73,7 +73,7 @@ class LoginView(View):
                     is_correct_password = user.check_password(user_password)
                     if is_correct_password:
                         login(request, user)
-                        return redirect(reverse("home_page"))
+                        return redirect(reverse("user_panel_dashboard"))
                     else:
                         login_form.add_error(field="email", error="کاربری با مشخصات شما یافت نشد")
             else:
@@ -86,7 +86,7 @@ class LoginView(View):
         return render(request, "account_app/login.html", context)
 
 
-class ActivateAccount(View):
+class ActivateAccountView(View):
     def get(self, request, email_active_code):
         user: User = User.objects.filter(email_active_code__iexact=email_active_code).first()
         if user is not None:
@@ -107,7 +107,7 @@ class ActivateAccount(View):
         pass
 
 
-class ForgetPassword(View):
+class ForgetPasswordView(View):
     def get(self, request: HttpRequest):
         forget_pass_form = ForgetPasswordForm()
         context = {
@@ -123,7 +123,8 @@ class ForgetPassword(View):
             user: User = User.objects.filter(email__iexact=user_email).first()
 
             if user is not None:
-                pass
+                send_email('بازیابی رمز عبور', user.email, {"user": user}, "emails/forget_password_activate.html")
+                return redirect(reverse("login-page"))
 
         context = {
             "form": forget_password_form
@@ -132,7 +133,7 @@ class ForgetPassword(View):
         return render(request, 'account_app/forgot_password.html', context)
 
 
-class ResetPassword(View):
+class ResetPasswordView(View):
     def get(self, request: HttpRequest, active_code):
         user: User = User.objects.filter(email_active_code__iexact=active_code).first()
         if user is None:
@@ -167,3 +168,9 @@ class ResetPassword(View):
             "user": user
         }
         return render(request, 'account_app/reset_password.html', context)
+
+
+class LogoutView(View):
+    def get(self, request: HttpRequest):
+        logout(request)
+        return redirect(reverse("login-page"))

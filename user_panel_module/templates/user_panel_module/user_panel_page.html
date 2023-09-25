@@ -1,0 +1,25 @@
+{% extends 'shared/layout.html' %}
+{% load render_partial %}
+
+{% block title %}
+پنل کاربری
+{% endblock %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            {% render_partial 'user_panel_module.views.user_panel_menu_component' %}
+        </div>
+        <div class="col-md-8">
+            {% if request.user.username %}
+                <p>سلام {{ request.user.username }} خوش آمدی به پنل کاربری خودت</p>
+            {% else %}
+                <p>سلام {{ requesr.user.email }} خوش آمدی به پنل کاربری خودت</p>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}

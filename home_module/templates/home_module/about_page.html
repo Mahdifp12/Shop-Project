@@ -1,0 +1,49 @@
+{% extends 'shared/layout.html' %}
+{% load static %}
+
+{% block title %}
+    درباره ما
+{% endblock %}
+
+{% block content %}
+    <div id="contact-page" class="container">
+    	<div class="bg">
+
+    		<div class="row">
+				<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">لوگـو شرکت</h2>
+                        <a href="{% url 'home_page' %}"><img src="{{ settings.site_logo.url }}" class="img-responsive"></a>
+	    			</div>
+    			</div>
+	    		<div class="col-sm-8">
+	    			<div class="about">
+	    				<h2 class="title text-center">دربـاره ما</h2>
+						<p class="about-desc">
+	    				{{ settings.about_us }}
+						</p>
+	    			</div>
+	    		</div>
+	    	</div>
+
+			<div class="row">
+				<div class="col-sm-12 about-address">
+					<address>
+	    				<p>{{ settings.site_name }} | ایران - {{ settings.address }} | تلفن تماس : {{ settings.phone }} | فکس : {{ settings.fax }} | ایمیـل : {{ settings.email }}
+						</p>
+	    			</address>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="container">
+	    			<div class="col-sm-12" style="overflow: hidden; margin-bottom: 40px">    			   		<h2 class="title text-center">مـا اینجـا هستیـم ... </h2>    			    						<div id="gmap" class="contact-map">
+							<img src="{% static 'images/home/Map.jpg' %}" alt="Map">
+						</div>
+					</div>
+				</div>
+			</div>
+
+    	</div>
+    </div>
+{% endblock %}

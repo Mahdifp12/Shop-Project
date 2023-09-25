@@ -1,4 +1,5 @@
 {% extends 'shared/layout.html' %}
+{% load thumbnail %}
 
 {% block title %}
     {{ product.title }}
@@ -14,7 +15,9 @@
 						<div class="col-sm-5">
 							<div class="view-product">
                                 {% if product.image %}
-                                    <img src="{{ product.image.url }}" alt="product image">
+                                    {% thumbnail product.image "330x380" quality=75 crop="center" as image %}
+                                        <img src="{{ image.url }}" alt="product image">
+                                    {% endthumbnail %}
                                 {% else %}
                                     <img src="/static/images/product-details/1.jpg" alt="product-image">
                                 {% endif %}
@@ -74,13 +77,22 @@
                                         <form method="post" action="{% url 'product-favorite' %}">
                                          {% csrf_token %}
 										<input type="hidden" name="product_id" value="{{ product.id }}" class="search_box">
-										<button type="submit" class="btn btn-fefault cart">
-											<i class="fa fa-shopping-cart"></i>
+										<button type="submit" class="btn btn-default cart">
+											<i class="fa fa-star"></i>
 											افزودن به علاقمندی ها
-                                        </form>
 										</button>
+                                        </form>
 									</span>
-
+									<span>
+                                        <form method="post" action="{% url 'add-shopping-cart' %}">
+                                         {% csrf_token %}
+										<input type="hidden" name="product_id" value="{{ product.id }}">
+										<button type="submit" class="btn btn-default cart">
+											<i class="fa fa-shopping-cart"></i>
+											افزودن به سبد خرید
+										</button>
+										</form>
+									</span>
 								</div>
 								<div>
                                     {% if product.is_active %}

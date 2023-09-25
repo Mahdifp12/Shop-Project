@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-52tzhgosmsj&=3#c+-v3@q36zw5ss392pp2xf96xzdqgg7kif("
-
+SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,9 +43,15 @@ INSTALLED_APPS = [
     "contact_us",
     "api_app",
     "account_app",
+    "site_settings_module",
+    "articles_module",
+    "polls",
+    "user_panel_module",
     # external apps
     "django_render_partial",
     "rest_framework",
+    "sorl.thumbnail",
+    "jalali_date",
 
 ]
 
@@ -115,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "fa-ir"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tehran"
 
 USE_I18N = True
 
@@ -145,8 +153,34 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST = "smtp.gmail.com"
 
-EMAIL_HOST_USER = ""
+EMAIL_HOST_USER = "Your SMTP email is placed here"  # you should create SMTP Email just this project
+# hint : you can use add passwords system from gmail under here ...
+# you can see guide this site : https://www.gmass.co/blog/gmail-smtp/
 
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_PASSWORD = "Your Password is placed here"
 
 EMAIL_PORT = 587
+
+JALALI_DATE_DEFAULTS = {
+    'Strftime': {
+        'date': '%y/%m/%d',
+        'datetime': '%H:%M:%S _ %y/%m/%d',
+    },
+    'Static': {
+        'js': [
+            # loading datepicker
+            'admin/js/django_jalali.min.js',
+            # OR
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.core.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/calendar.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc.js',
+            # 'admin/jquery.ui.datepicker.jalali/scripts/jquery.ui.datepicker-cc-fa.js',
+            # 'admin/js/main.js',
+        ],
+        'css': {
+            'all': [
+                'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css',
+            ]
+        }
+    },
+}

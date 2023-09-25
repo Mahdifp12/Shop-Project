@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from account_app.models import User
 
 
 # Create your models here.
@@ -11,6 +12,8 @@ class ProductCategory(models.Model):
     url_title = models.CharField(max_length=300, db_index=True, verbose_name='عنوان در url')
     is_active = models.BooleanField(default=False, verbose_name="فعال / غیر فعال")
     is_delete = models.BooleanField(default=False, verbose_name="حذف شده / حذف نشده")
+    parent = models.ForeignKey('ProductCategory', null=True, blank=True, on_delete=models.CASCADE,
+                               verbose_name='دسته بندی والد')
 
     def __str__(self):
         return f'({self.title}) - ({self.url_title})'
@@ -22,6 +25,7 @@ class ProductCategory(models.Model):
 
 class ProductBrand(models.Model):
     title = models.CharField(max_length=300, db_index=True, verbose_name="عنوان برند")
+    url_title = models.CharField(max_length=300, db_index=True, null=True, verbose_name='عنوان در url')
     is_active = models.BooleanField(default=False, verbose_name="فعال / غیر فعال")
 
     class Meta:
@@ -73,3 +77,16 @@ class ProductTag(models.Model):
 
     def __str__(self):
         return self.caption
+
+
+class ShoppingCart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="کاربر")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="محصول")
+    quantity = models.PositiveIntegerField(default=1, verbose_name="تعداد")
+
+    class Meta:
+        verbose_name = 'سبد خرید'
+        verbose_name_plural = 'سبد های خرید'
+
+    def __str__(self):
+        return f"{self.user} - {self.product} ({self.quantity})"
