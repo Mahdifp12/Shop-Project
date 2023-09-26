@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponseBadRequest
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.shortcuts import redirect, render
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from .forms import QuantityForm
 from .models import Product, ProductCategory, ProductBrand, ShoppingCart
 
@@ -103,6 +103,13 @@ class AddShoppingCart(View):
         messages.success(request, "محصول با موفقیت به سبد خرید شما اضافه شد.")
 
         return redirect(reverse("shopping-cart-view"))
+
+
+class RemoveItemCartView(DeleteView):
+    model = ShoppingCart
+    template_name = "product_module/shopping_cart_page.html"
+    context_object_name = "item"
+    success_url = reverse_lazy('shopping-cart-view')
 
 
 def product_categories_components(request: HttpRequest):
