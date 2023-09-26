@@ -18,7 +18,14 @@
     <div class="overlay-content">
         <h2>تومان{{ product.price }}</h2>
         <p>{{ product.title }}</p>
-        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+    <form method="post" action="{% url 'add-shopping-cart' %}">
+         {% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <button type="submit" class="btn btn-default add-to-cart">
+            <i class="fa fa-shopping-cart"></i>
+            افزودن به سبد خرید
+        </button>
+    </form>
     </div>
 </div>
 </div>
